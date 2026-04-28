@@ -18,9 +18,24 @@ En la práctica, la UART se usa mucho para depuración de programas, monitoreo d
 
 En este laboratorio se trabajó con el microcontrolador PIC18F45K22, aprovechando su módulo EUSART para configurar una comunicación UART en modo asíncrono. Se estableció una velocidad de transmisión de 9600 bits por segundo y se enviaron datos hacia un computador, donde se visualizaron mediante un terminal serial. Esto permitió entender de forma práctica cómo funciona este tipo de comunicación y qué aspectos son críticos para que funcione correctamente.
 
+**Comunicación serial UART**
 
+La UART funciona enviando los datos de manera secuencial, es decir, un bit a la vez. Esto contrasta con la comunicación paralela, donde se envían varios bits al mismo tiempo, pero requiere más líneas físicas.
 
+Cada dato que se transmite mediante UART sigue una estructura específica llamada trama. Esta incluye un bit de inicio que indica cuándo comienza la transmisión, seguido de los bits de datos (generalmente 8), y finalmente uno o más bits de parada que indican el final del dato.
 
+Este formato permite que el dispositivo receptor se sincronice correctamente con el emisor, incluso sin un reloj compartido.
+
+**Parámetros de configuración**
+
+Para que la comunicación UART funcione correctamente, es necesario que ambos dispositivos tengan exactamente la misma configuración. Los parámetros más importantes son:
+
+* Baud rate: Es la velocidad a la que se transmiten los bits. En este laboratorio se usó 9600 bits por segundo, que es un valor bastante común.
+* Bits de datos: Generalmente se usan 8 bits, lo que permite enviar caracteres estándar.
+Paridad: Es un método para detectar errores, pero en este caso no se utilizó.
+* Bits de parada: Indican el final de cada dato, normalmente se usa 1 bit.
+
+Si alguno de estos parámetros no coincide entre los dispositivos, los datos recibidos pueden aparecer corruptos o ilegibles.
 
 ## Diagramas
 
