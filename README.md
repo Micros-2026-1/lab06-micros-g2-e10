@@ -55,6 +55,7 @@ En este caso:
 ![Configuracion generales del PIC](/imagenes/image.png)
 
 Frecuencia del oscilador: 16 MHz
+
 Baud rate: 9600
 
 Al realizar los calculos, se obtiene aproximadamente:
