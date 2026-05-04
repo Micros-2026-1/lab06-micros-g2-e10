@@ -8,6 +8,7 @@
 * [CRISTIAN FABIAN LOZANO](https://github.com/cristianfalozanoav)
 
 ## Documentación
+
 La comunicación UART es una de las formas más básicas y al mismo tiempo más importantes de comunicación en electrónica y sistemas embebidos. Se usa para que dos dispositivos puedan intercambiar información de manera sencilla, enviando los datos bit por bit a través de un canal serial.
 
 A diferencia de otros tipos de comunicación, la UART es asíncrona, lo que significa que no necesita una señal de reloj compartida entre los dispositivos. En vez de eso, ambos dispositivos deben ponerse de acuerdo previamente en ciertos parámetros como la velocidad de transmisión (baud rate), la cantidad de bits de datos, si se usa o no paridad y cuántos bits de parada se van a manejar. Si estos parámetros no coinciden, la comunicación simplemente no funciona bien.
@@ -43,7 +44,25 @@ Para que la comunicación UART funcione correctamente, es necesario que ambos di
 Paridad: Es un método para detectar errores, pero en este caso no se utilizó.
 * Bits de parada: Indican el final de cada dato, normalmente se usa 1 bit.
 
-Si alguno de estos parámetros no coincide entre los dispositivos, los datos recibidos pueden aparecer corruptos o ilegibles.
+**Cálculo del baud rate**
+
+Para configurar la velocidad de transmisión, se utiliza el registro SPBRG. Este valor se calcula a partir de la frecuencia del oscilador del microcontrolador.
+
+La fórmula utilizada es:
+
+En este caso:
+
+![Configuracion generales del PIC](/imagenes/image.png)
+
+Frecuencia del oscilador: 16 MHz
+Baud rate: 9600
+
+Al realizar los calculos, se obtiene aproximadamente:
+
+SPBRG≈25
+
+Este valor permite una comunicación bastante estable dentro del margen de error permitido.
+
 
 ## Diagramas
 
