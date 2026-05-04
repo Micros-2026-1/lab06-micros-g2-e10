@@ -18,6 +18,14 @@ En la práctica, la UART se usa mucho para depuración de programas, monitoreo d
 
 En este laboratorio se trabajó con el microcontrolador PIC18F45K22, aprovechando su módulo EUSART para configurar una comunicación UART en modo asíncrono. Se estableció una velocidad de transmisión de 9600 bits por segundo y se enviaron datos hacia un computador, donde se visualizaron mediante un terminal serial. Esto permitió entender de forma práctica cómo funciona este tipo de comunicación y qué aspectos son críticos para que funcione correctamente.
 
+**Módulo EUSART del PIC**
+
+El PIC18F45K22 tiene integrado un módulo llamado EUSART, que facilita la implementación de comunicación serial. Este módulo se encarga de gestionar tanto la transmisión como la recepción de datos, sin necesidad de que el programador controle cada bit manualmente.
+
+El EUSART puede trabajar en modo síncrono o asíncrono, pero en este laboratorio se utilizó el modo asíncrono, ya que es el más común cuando se trabaja con computadoras.
+
+Además, este módulo utiliza registros internos como TXREG (para enviar datos) y RCREG (para recibirlos), lo que simplifica bastante el proceso de comunicación.
+
 **Comunicación serial UART**
 
 La UART funciona enviando los datos de manera secuencial, es decir, un bit a la vez. Esto contrasta con la comunicación paralela, donde se envían varios bits al mismo tiempo, pero requiere más líneas físicas.
